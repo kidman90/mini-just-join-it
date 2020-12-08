@@ -1,18 +1,16 @@
-import React from 'react'
-import Link from 'next/link'
+import * as React from 'react';
 
-import { User } from '../interfaces'
+import { IOffer } from '../interfaces';
+import Link from 'next/link';
 
-type Props = {
-  data: User
-}
+type ListItemProps = {
+  data: IOffer;
+};
 
-const ListItem = ({ data }: Props) => (
-  <Link href="/users/[id]" as={`/users/${data.id}`}>
-    <a>
-      {data.id}: {data.name}
-    </a>
+const ListItem = ({ data }: ListItemProps) => (
+  <Link href="/[id]" as={`/${data.id}`}>
+    <a>{data.title}</a>
   </Link>
-)
+);
 
-export default ListItem
+export default ListItem;

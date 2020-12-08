@@ -1,15 +1,24 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import { GetStaticProps } from 'next';
+import { IOffer } from '../interfaces';
+import Layout from '../components/Layout';
+import List from '../components/List';
+import { getOffers } from './api/offers';
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+type Props = {
+  offers: IOffer[];
+};
 
-export default IndexPage
+const WithStaticProps = ({ offers }: Props) => {
+  return (
+    <Layout>
+      <List offers={offers} />
+    </Layout>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const offers: IOffer[] = await getOffers();
+  return { props: { offers } };
+};
+
+export default WithStaticProps;
