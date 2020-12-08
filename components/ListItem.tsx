@@ -37,6 +37,7 @@ type ListItemProps = {
 
 export const ListItem = ({ data }: ListItemProps) => {
   const classes = useStyles();
+
   return (
     <Link href="/[category]/[id]" as={`/${data.marker_icon}/${data.id}`}>
       <Grid item xs={6} sm={4} md={3}>
@@ -44,14 +45,15 @@ export const ListItem = ({ data }: ListItemProps) => {
           <CardHeader
             avatar={<Avatar src={data.company_logo_url} />}
             title={data.title}
-            subheader={data.city}
+            subheader={`${data.company_name}, ${data.city}`}
           />
           <CardContent className={classes.cardContent}>
             <Typography variant="subtitle1" component="h4">
               {data.salary_from} - {data.salary_to} {data.salary_currency}
             </Typography>
-            {data.skills.map((skill) => (
+            {data.skills.map((skill, index) => (
               <Chip
+                key={index}
                 label={skill.name}
                 size="small"
                 avatar={<Avatar>{skill.level}</Avatar>}

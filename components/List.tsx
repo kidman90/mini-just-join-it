@@ -11,7 +11,7 @@ type ListProps = {
 export const List = ({ offers }: ListProps) => (
   <Grid container spacing={4}>
     {offers.map((offer) => (
-      <ListItem data={offer} />
+      <ListItem key={offer.id} data={offer} />
     ))}
   </Grid>
 );
