@@ -1,15 +1,21 @@
 import * as React from 'react';
 
+import { amber, deepPurple } from '@material-ui/core/colors';
+
 import { AppProps } from 'next/app';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
-    primary: blue
+    primary: {
+      main: deepPurple[800]
+    },
+    secondary: {
+      main: amber[400]
+    }
   }
 });
 

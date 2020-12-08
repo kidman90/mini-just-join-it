@@ -20,7 +20,7 @@ const WithStaticProps = ({ offers, category }: Props) => {
   );
 
   return (
-    <Layout categories={categories}>
+    <Layout categories={categories} selected={category}>
       <List offers={filteredOffers} />
     </Layout>
   );

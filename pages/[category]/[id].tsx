@@ -16,7 +16,7 @@ const StaticPropsDetail = ({ offers, id }: Props) => {
   const offer = offers.find((offer) => offer.id === id);
 
   return (
-    <Layout categories={categories}>
+    <Layout categories={categories} selected={offer?.marker_icon}>
       {offer && <ListDetail offer={offer} />}
     </Layout>
   );
