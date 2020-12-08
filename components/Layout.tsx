@@ -2,6 +2,7 @@ import {
   AppBar,
   Container,
   Grid,
+  Theme,
   Toolbar,
   Typography,
   createStyles,
@@ -12,7 +13,7 @@ import React, { ReactNode } from 'react';
 import { Categories } from './Categories';
 import Link from 'next/link';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     wrapper: {
       display: 'flex',
@@ -24,6 +25,8 @@ const useStyles = makeStyles(() =>
     },
     main: {
       flex: 1,
+      paddingBottom: theme.spacing(4),
+      paddingTop: theme.spacing(4),
       overflowY: 'auto'
     }
   })

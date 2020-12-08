@@ -29,11 +29,7 @@ export const Categories = ({ data, selected }: CategoriesProps) => (
       </Grid>
     </Link>
     {data.map((category, index) => (
-      <Link
-        href={category === selected ? '/' : '/[category]'}
-        as={`/${category === selected ? '' : category}`}
-        key={index}
-      >
+      <Link href="/[category]" as={`/${category}`} key={index}>
         <Grid item>
           <StyledButton
             variant="contained"

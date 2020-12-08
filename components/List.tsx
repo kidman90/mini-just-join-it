@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { Grid } from '@material-ui/core';
 import { IOffer } from '../interfaces';
 import { ListItem } from './ListItem';
 
@@ -8,11 +9,9 @@ type ListProps = {
 };
 
 export const List = ({ offers }: ListProps) => (
-  <ul>
+  <Grid container spacing={4}>
     {offers.map((offer) => (
-      <li key={offer.id}>
-        <ListItem data={offer} />
-      </li>
+      <ListItem data={offer} />
     ))}
-  </ul>
+  </Grid>
 );
