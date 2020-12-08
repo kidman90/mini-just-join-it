@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { Categories } from '../components/Categories';
 import { GetStaticProps } from 'next';
 import { IOffer } from '../interfaces';
 import { Layout } from '../components/Layout';
@@ -13,9 +12,10 @@ type Props = {
 };
 
 export const WithStaticProps = ({ offers }: Props) => {
+  const categories = getCategories(offers);
+
   return (
-    <Layout>
-      <Categories data={getCategories(offers)} />
+    <Layout categories={categories}>
       <List offers={offers} />
     </Layout>
   );

@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Categories } from '../components/Categories';
 import { IOffer } from '../interfaces';
 import { Layout } from '../components/Layout';
 import { List } from '../components/List';
@@ -15,13 +14,13 @@ type Props = {
 };
 
 const WithStaticProps = ({ offers, category }: Props) => {
+  const categories = getCategories(offers);
   const filteredOffers = offers.filter(
     (offer) => offer.marker_icon === category
   );
 
   return (
-    <Layout>
-      <Categories data={getCategories(offers)} />
+    <Layout categories={categories}>
       <List offers={filteredOffers} />
     </Layout>
   );
