@@ -7,10 +7,8 @@ type ListItemProps = {
   data: IOffer;
 };
 
-const ListItem = ({ data }: ListItemProps) => (
-  <Link href="/[id]" as={`/${data.id}`}>
+export const ListItem = ({ data }: ListItemProps) => (
+  <Link href="/[category]/[id]" as={`/${data.marker_icon}/${data.id}`}>
     <a>{data.title}</a>
   </Link>
 );
-
-export default ListItem;

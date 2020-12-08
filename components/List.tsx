@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import { IOffer } from '../interfaces';
-import ListItem from './ListItem';
+import { ListItem } from './ListItem';
 
 type ListProps = {
   offers: IOffer[];
 };
 
-const List = ({ offers }: ListProps) => (
+export const List = ({ offers }: ListProps) => (
   <ul>
     {offers.map((offer) => (
       <li key={offer.id}>
@@ -16,5 +16,3 @@ const List = ({ offers }: ListProps) => (
     ))}
   </ul>
 );
-
-export default List;

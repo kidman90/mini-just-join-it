@@ -8,7 +8,7 @@ type LayoutProps = {
   title?: string;
 };
 
-const Layout = ({ children, title = 'justjoin.it' }: LayoutProps) => (
+export const Layout = ({ children, title = 'justjoin.it' }: LayoutProps) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -27,5 +27,3 @@ const Layout = ({ children, title = 'justjoin.it' }: LayoutProps) => (
     </footer>
   </div>
 );
-
-export default Layout;

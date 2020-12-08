@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { IOffer } from '../interfaces';
-import Layout from '../components/Layout';
-import ListDetail from '../components/ListDetail';
-import { getOffers } from './api/offers';
+import { IOffer } from '../../interfaces';
+import { Layout } from '../../components/Layout';
+import { ListDetail } from '../../components/ListDetail';
+import { getOffers } from '../api/offers';
 
 type Props = {
   offer: IOffer;
@@ -19,7 +19,9 @@ export default StaticPropsDetail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const offers: IOffer[] = await getOffers();
-  const paths = offers.map((offer) => ({ params: { id: offer.id } }));
+  const paths = offers.map((offer) => ({
+    params: { category: offer.marker_icon, id: offer.id }
+  }));
   return { paths, fallback: false };
 };
 
