@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type LayoutProps = {
-  children?: ReactNode;
+  children: NonNullable<ReactNode>;
   title?: string;
   categories: string[];
   selected?: string;

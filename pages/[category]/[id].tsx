@@ -17,7 +17,7 @@ const StaticPropsDetail = ({ offers, id }: Props) => {
 
   return (
     <Layout categories={categories} selected={offer?.marker_icon}>
-      {offer && <ListDetail offer={offer} />}
+      {offer ? <ListDetail offer={offer} /> : <p>Not found</p>}
     </Layout>
   );
 };
